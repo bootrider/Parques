@@ -1,14 +1,31 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceLogic", "DiceLogic\DiceLogic.csproj", "{4A8A75BD-D0DC-4525-8AA2-71CB4717FFA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceLogic.Tests", "DiceLogic.Tests\DiceLogic.Tests.csproj", "{EB23DAD0-730D-4202-B27C-B12F794EC116}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A8A75BD-D0DC-4525-8AA2-71CB4717FFA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A8A75BD-D0DC-4525-8AA2-71CB4717FFA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A8A75BD-D0DC-4525-8AA2-71CB4717FFA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A8A75BD-D0DC-4525-8AA2-71CB4717FFA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB23DAD0-730D-4202-B27C-B12F794EC116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB23DAD0-730D-4202-B27C-B12F794EC116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB23DAD0-730D-4202-B27C-B12F794EC116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB23DAD0-730D-4202-B27C-B12F794EC116}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6DBF038-EBDE-4255-B191-940245D5EF31}
 	EndGlobalSection
 EndGlobal
