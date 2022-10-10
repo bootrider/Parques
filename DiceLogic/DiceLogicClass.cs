@@ -2,15 +2,28 @@
 {
     public class DiceLogicClass
     {
-        public object diceRoll() //lanzar dados
+        public int generateNumberFace() //lanzar dado
         {
-            //no se especifico la firma del metodo, que retorna.
-            Dice dice1 = new Dice();
-            Dice dice2 = new Dice();
-            Console.WriteLine(dice1.roll()); 
-            Console.WriteLine(dice2.roll());
-            return null;
+            int numberFace;
+            Random random = new Random();
+            numberFace = random.Next(1, 7);
+            return numberFace;
         }
-        
+
+        public int putTogheter(int dice1,int dice2)
+        {
+            int total = dice1 + dice2;
+            return total;
+        }
+
+        public int[] diceRoll()
+        {
+            int[] dataDice = new int[3];
+            dataDice[0] = generateNumberFace();
+            dataDice[1] = generateNumberFace();
+            dataDice[2] = putTogheter(dataDice[0], dataDice[1]);
+            return dataDice;
+        }
+
     }
 }
