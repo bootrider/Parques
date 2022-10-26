@@ -37,7 +37,11 @@ namespace BoardLogic
         public House(Color color,  bool AsArray):
             this(color)
         {
-
+            this.Path[0] = new BoxCeilSafe();
+            //llenar las otras
+            this.Path[5] = new BoxStart();
+            // llenar las otras
+            this.Path[12] = new BoxSafe();
         }
     }
 }
