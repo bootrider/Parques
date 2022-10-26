@@ -8,5 +8,6 @@ namespace BoardLogic
 {
     public class BoxCeilSafe : Box
     {
+        public Box SkyEntrance { get; set; }
     }
 }

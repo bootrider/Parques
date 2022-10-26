@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=Box Member=tokens)" Category="CodeSchema_Field" Bounds="141.722870495443,-100.016915045166,123.81,26" CodeSchemaProperty_IsPrivate="True" CommonLabel="tokens" Icon="Microsoft.VisualStudio.Field.Private" Label="tokens : Token[]" SourceLocation="(Assembly=file:///E:/Repos/Parques/BoardLogic/Box.cs StartLineNumber=10 StartCharacterOffset=16 EndLineNumber=10 EndCharacterOffset=22)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=Box)" Category="CodeSchema_Class" Bounds="163.350107828776,-109.486515045166,80.4166666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="Box" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Public" Label="Box" SourceLocation="(Assembly=file:///E:/Repos/Parques/BoardLogic/Box.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=20)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=BoxCeilSafe)" Category="CodeSchema_Class" Bounds="-136.918207354325,-14.1073570251465,102.45,26" CodeSchemaProperty_IsPublic="True" CommonLabel="BoxCeilSafe" Icon="Microsoft.VisualStudio.Class.Public" Label="BoxCeilSafe" SourceLocation="(Assembly=file:///E:/Repos/Parques/BoardLogic/BoxCeilSafe.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=28)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=BoxNormal)" Category="CodeSchema_Class" Bounds="-134.414874020991,-70.1074523925781,99.9466666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="BoxNormal" Icon="Microsoft.VisualStudio.Class.Public" Label="BoxNormal" SourceLocation="(Assembly=file:///E:/Repos/Parques/BoardLogic/BoxNormal.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=26)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=BoxSafe)" Category="CodeSchema_Class" Bounds="25.3516694641113,97.8928430534668,82.93,26" CodeSchemaProperty_IsPublic="True" CommonLabel="BoxSafe" Icon="Microsoft.VisualStudio.Class.Public" Label="BoxSafe" SourceLocation="(Assembly=file:///E:/Repos/Parques/BoardLogic/BoxSafe.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=24)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=BoxSky)" Category="CodeSchema_Class" Bounds="167.671716742961,-41.9960570887683,78.5599999999999,26" CodeSchemaProperty_IsPublic="True" CommonLabel="BoxSky" Icon="Microsoft.VisualStudio.Class.Public" Label="BoxSky" SourceLocation="(Assembly=file:///E:/Repos/Parques/BoardLogic/BoxSky.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=23)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=BoxStart)" Category="CodeSchema_Class" Bounds="-61.1449971516927,41.8927430534668,84.8166666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="BoxStart" Icon="Microsoft.VisualStudio.Class.Public" Label="BoxStart" SourceLocation="(Assembly=file:///E:/Repos/Parques/BoardLogic/BoxStart.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=25)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=Token)" Category="CodeSchema_Class" Bounds="-76.82499678243,127.203573269775,72.1766666666667,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Token" Icon="Microsoft.VisualStudio.Class.Internal" Label="Token" SourceLocation="(Assembly=file:///E:/Repos/Parques/BoardLogic/Token.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=24)" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=Box)" Target="(@1 @2 Type=Box Member=tokens)" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="ToolTip" DataType="System.String" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(3e864718-ce11-4060-bdcf-5f74859ce7dc.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=BoardLogic" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Circular References" ToolTip="Node is part of a strongly coupled component" ValueLabel="Nodes">
+      <Condition Expression="IsStronglyConnected" />
+      <Setter Property="Stroke" Value="#D02030" />
+      <Setter Property="StrokeThickness" Value="2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Circular References" ToolTip="Node is part of a strongly coupled component" ValueLabel="Links">
+      <Condition Expression="IsCircularLink" />
+      <Setter Property="Stroke" Value="#D02030" />
+      <Setter Property="StrokeThickness" Value="2" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="3e864718-ce11-4060-bdcf-5f74859ce7dc.OutputPathUri" Value="file:///E:/Repos/Parques/BoardLogic/bin/Debug/net6.0/BoardLogic.dll" />
+  </Paths>
+</DirectedGraph>

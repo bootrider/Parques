@@ -10,5 +10,7 @@ namespace BoardLogic
     {
         Token[] tokens;
 
+        public Box Next { get; set; }
+
     }
 }
