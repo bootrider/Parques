@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoardLogic
 {
-    public class BoxCeilSafe : Box
+    public class BoxSkySafe : Box
     {
         public Box SkyEntrance { get; set; }
     }

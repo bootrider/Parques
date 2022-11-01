@@ -16,20 +16,21 @@ namespace BoardLogic
 
         public House(Color color)
         {
-            var sky = new BoxCeilSafe();
-            sky.SkyEntrance = new BoxSky();
-            sky.SkyEntrance.Next = new BoxSky();
-            sky.SkyEntrance.Next.Next = new BoxSky();
+            var sky = new BoxSkySafe();
+            
+            sky.SkyEntrance = new BoxPathSky();
+            //sky.SkyEntrance.Next = new BoxPathSky();
+            //sky.SkyEntrance.Next.Next = new BoxPathSky();
 
             var Path = new Box();
             // aqui faltan 4
-            Path.Next = new BoxStart();
-            Path.Next.Next = new Box();
+            //Path.Next = new BoxStart();
+            //Path.Next.Next = new Box();
             // aqui faltan 6
-            Path.Next.Next.Next = new BoxSafe();
-            Path.Next.Next.Next.Next = new Box();
+            //Path.Next.Next.Next = new BoxSafe();
+            //Path.Next.Next.Next.Next = new Box();
 
-            sky.Next = Path;
+            //sky.Next = Path;
 
             this.Color = color;
         }
@@ -37,11 +38,19 @@ namespace BoardLogic
         public House(Color color,  bool AsArray):
             this(color)
         {
-            this.Path[0] = new BoxCeilSafe();
-            //llenar las otras
-            this.Path[5] = new BoxStart();
-            // llenar las otras
-            this.Path[12] = new BoxSafe();
+            this.Path = Path;
+            for (int i = 0; i < Path.Length; i++)
+            {
+                switch (i)
+                {
+                    case 0: this.Path[0] = new BoxSkySafe(); break;
+                    case 5: this.Path[5] = new BoxStart(); break;
+                    case 12: this.Path[12] = new BoxSafe(); break;
+                    default: //llenar las otras
+                        this.Path[i] = new BoxNormal();
+                        break;
+                }
+            } 
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoardLogic
 {
-    public class BoxSky : BoxSafe //tengo duda si hereda de seguro o de casilla
+    public class BoxPathSky : BoxSafe 
     { 
     }
 }
