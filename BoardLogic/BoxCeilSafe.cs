@@ -8,6 +8,8 @@ namespace BoardLogic
 {
     public class BoxSkySafe : Box
     {
-        public Box SkyEntrance { get; set; }
+        public BoxSkySafe(int indice) : base(indice)
+        {
+        }
     }
 }

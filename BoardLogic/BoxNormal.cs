@@ -8,6 +8,8 @@ namespace BoardLogic
 {
     public class BoxNormal : Box
     {
-
+        public BoxNormal(int indice) : base(indice)
+        {
+        }
     }
 }

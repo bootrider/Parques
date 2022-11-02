@@ -10,8 +10,14 @@ namespace BoardLogic
     
     public class Token
     {
+        internal object getHouse;
         private Color Color;
 
         Color Color1 { get => Color; set => Color = value; }
+
+        internal string getColor()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
