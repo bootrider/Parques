@@ -6,7 +6,8 @@ namespace BoardLogic
 {
     public class House
     {
-        public Jail Jail{ get; set; }
+        //public Jail Jail{ get; set; }
+        public Token[] Jail { get; set; } = new Token[4];
 
         public Box[] Sky { get; set; } = new Box[8];
 
@@ -16,6 +17,10 @@ namespace BoardLogic
 
         public House(Color color)
         {
+            //inicializated color
+            this.Color = color;
+            
+            //inicializated the pathNormal
             for (int i = 0; i < Path.Length; i++)
             {
                 switch (i)
@@ -27,7 +32,15 @@ namespace BoardLogic
                         this.Path[i] = new BoxNormal(i);
                         break;
                 }
-            } 
+            }
+
+            //inicializated The SkyPath //THIS COULD TO BE A RULER 
+            for (int i = 0; i < Sky.Length; i++)
+                this.Sky[i] = new BoxSafe(i);
+
+            //Inicializated the Jail //I THINGS SO
+            for (int i = 0; i < Jail.Length; i++)
+                this.Jail[i] = new Token();
         }
     }
 }

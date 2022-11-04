@@ -44,7 +44,7 @@ namespace BoardLogic
                 }
                 else
                 {
-                    //si el indice es 1, se elimina el color del dicionario
+                    //id indice = 1, it is remove the color of dictionary
                     tokensOverview.Remove(token.getColor());    
                 }
             }
