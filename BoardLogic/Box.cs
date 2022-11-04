@@ -24,28 +24,28 @@ namespace BoardLogic
         public void AddToken(Token token)
         {
 
-            if(tokensOverview.ContainsKey(token.getColor()))
+            if (tokensOverview.ContainsKey(token.Color.ToString()))
             {
-                tokensOverview[token.getColor()]+=1;
+                tokensOverview[token.Color.ToString()]+=1;
             }
             else 
             {
-                tokensOverview.TryAdd(token.getColor(), 1);
+                tokensOverview.TryAdd(token.Color.ToString(), 1);
             }        
         }
 
         public void RemoveAToken(Token token)
         {
-            if (tokensOverview.TryGetValue(token.getColor(), out int indice))
+            if (tokensOverview.TryGetValue(token.Color.ToString(), out int indice))
             {
                 if (indice >= 2 )
                 {
-                    tokensOverview[token.getColor()] -= 1;
+                    tokensOverview[token.Color.ToString()] -= 1;
                 }
                 else
                 {
                     //id indice = 1, it is remove the color of dictionary
-                    tokensOverview.Remove(token.getColor());    
+                    tokensOverview.Remove(token.Color.ToString());    
                 }
             }
             //si llega here at else, es por que, es por que el parametro no exite!!. exception

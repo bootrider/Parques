@@ -4,27 +4,17 @@ namespace BoardLogic.Tests
     public class UnitTest1
     {
         [TestMethod]
-        public void Board_InstacedBoard_X()
+        public void Board_WithPlayers_ReturnTrue()
         {
+            int players = 3;
             //Arrange
-            var board = new Board(3);
+            var board = new Board(players);
 
             //Act
-
+            int cantHouse = board.Houses.Length;
 
             //Assert
-
+            Assert.AreEqual(players, cantHouse);
         }
-        /*public void Run_NumbersBellow10_ResultIs23()
-        {
-            // Arrange
-            var exercise = new Excercise();
-
-            // Act
-            var result = exercise.Run(10);
-
-            // Assert
-            result.Should().Be(23);
-        }*/
     }
 }
