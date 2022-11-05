@@ -1,16 +1,16 @@
 namespace BoardLogic.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class BoardTests
     {
         [TestMethod]
         public void Board_WithPlayers_ReturnTrue()
         {
-            int players = 3;
             //Arrange
-            var board = new Board(players);
+            int players = 3;
 
             //Act
+            var board = new Board(players);
             int cantHouse = board.Houses.Length;
 
             //Assert

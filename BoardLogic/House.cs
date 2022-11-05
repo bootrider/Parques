@@ -17,10 +17,10 @@ namespace BoardLogic
 
         public House(Color color)
         {
-            //inicializated color
+            //initialized color
             this.Color = color;
             
-            //inicializated the pathNormal
+            //initialized the pathNormal
             for (int i = 0; i < Path.Length; i++)
             {
                 switch (i)
@@ -28,17 +28,17 @@ namespace BoardLogic
                     case 0: this.Path[0] = new BoxSkySafe(i); break; 
                     case 5: this.Path[5] = new BoxStart(i); break;
                     case 12: this.Path[12] = new BoxSafe(i); break;
-                    default: //llenar las otras
+                    default: // TODO: Fill the other
                         this.Path[i] = new BoxNormal(i);
                         break;
                 }
             }
 
-            //inicializated The SkyPath //THIS COULD TO BE A RULER 
+            //initialized The SkyPath //THIS COULD TO BE A RULE 
             for (int i = 0; i < Sky.Length; i++)
-                this.Sky[i] = new BoxSafe(i);
+                this.Sky[i] = new BoxNormal(i);
 
-            //Inicializated the Jail //I THINGS SO
+            //Initialized the Jail //I THINK SO
             for (int i = 0; i < Jail.Length; i++)
                 this.Jail[i] = new Token();
         }
