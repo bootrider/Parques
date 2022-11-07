@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace BoardLogic
 {
-    public class Board
+    public class Board : IBoard
     {
         public House[] Houses { get; set; }
 
@@ -28,16 +23,24 @@ namespace BoardLogic
                     case 7: selectedColor = Color.Pink; break;
                     case 8: selectedColor = Color.Orange; break;
                     case 9: selectedColor = Color.Gray; break;
-                    case 10:selectedColor = Color.Purple; break;
-                    case 11: selectedColor = Color.Brown;  break;
+                    case 10: selectedColor = Color.Purple; break;
+                    case 11: selectedColor = Color.Brown; break;
                     case 12: selectedColor = Color.Fuchsia; break;
                     default: selectedColor = Color.Violet; break;
                 }
-                
+
                 this.Houses[i] = new House(selectedColor);
             }
         }
 
+        public void MoveToken(Token token, int steps)
+        {
+            throw new NotImplementedException();
+        }
 
+        public Token[] SetReady(Color color)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
