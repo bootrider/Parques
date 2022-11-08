@@ -14,6 +14,7 @@ namespace BoardLogic
                 Color selectedColor;
                 switch (i)
                 {
+                    case 0: selectedColor = Color.Violet; break;
                     case 1: selectedColor = Color.White; break;
                     case 2: selectedColor = Color.Black; break;
                     case 3: selectedColor = Color.Green; break;

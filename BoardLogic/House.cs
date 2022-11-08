@@ -36,7 +36,7 @@ namespace BoardLogic
 
             //initialized The SkyPath //THIS COULD TO BE A RULE 
             for (int i = 0; i < Sky.Length; i++)
-                this.Sky[i] = new BoxNormal(i);
+                this.Sky[i] = new BoxPathSky(i);
 
             //Initialized the Jail //I THINK SO
             for (int i = 0; i < Jail.Length; i++)
