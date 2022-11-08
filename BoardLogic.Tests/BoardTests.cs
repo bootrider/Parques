@@ -1,17 +1,17 @@
 namespace BoardLogic.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class BoardTests
     {
         [TestMethod]
         public void Board_WithPlayers_ReturnTrue()
         {
             //Arrange
             int players = 3;
-            var board = new Board(players);
 
             //Act
-            int cantHouse = board.Houses.Length; //here debe to go a method for to test
+            var board = new Board(players); 
+            int cantHouse = board.Houses.Length;
 
             //Assert
             Assert.AreEqual(players, cantHouse);
