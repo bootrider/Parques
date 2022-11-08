@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoardLogic
 {
-    public class BoxSkySafe : Box
+    public class BoxSkySafe : BoxSafe
     {
         public BoxSkySafe(int indice) : base(indice)
         {
