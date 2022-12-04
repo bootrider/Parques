@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.ObjectModel;
+using System.Drawing;
 using BoardLogic;
 
 namespace Game
@@ -13,6 +14,7 @@ namespace Game
         private static GameController myInstance = null;
 
         private IRound? myRound;
+        private Dictionary<Guid, Player> myPlayers = new();
 
         private GameController()
         {
@@ -32,8 +34,11 @@ namespace Game
             }
         }
 
-        public Player CurrentPlayer { get; set; }
+        public Player? CurrentPlayer { get; set; }
         public bool IsRunning { get; private set; }
+
+        public ReadOnlyDictionary<Guid, Player> Players  => new ReadOnlyDictionary<Guid, Player>(this.myPlayers);
+
         public IRound Round
         {
             get { return this.myRound ??= new Round(); }
@@ -47,13 +52,35 @@ namespace Game
             GameController.myInstance = null;
         }
 
-        public IRound StartGame(int players)
-        {    
-            this.Round.SetPlayers(players);
+        public Player? JoinPlayer(string name)
+        {
+            if (!this.IsRunning)
+            {
+                var player = new Player
+                {
+                    Id = Guid.NewGuid(),
+                    Name = name
+                };
+                this.myPlayers.Add(player.Id, player);
+                return player; 
+            }
 
-            this.Tokens = this.Round.StartRound();
+            return null;
+        }
 
-            return this.Round;
+        public IRound? StartGame()
+        {
+            if (this.myPlayers.Count > 1)
+            {
+                this.Round.SetPlayers(this.myPlayers.Count);
+
+                this.Tokens = this.Round.StartRound();
+                this.IsRunning = true;
+
+                return this.Round; 
+            }
+            
+            return null;
         }
     }
 }
