@@ -10,6 +10,7 @@ namespace Game
         IEnumerable<House> GetHouses();
 
         void SetPlayers(int players);
+
         Dictionary<Color, IList<Token>> StartRound();
     }
 }

@@ -9,11 +9,17 @@ namespace GameTests
     [TestClass]
     public class GameControllerTests
     {
+        [TestCleanup]
+        public void CleanEnvironment()
+        {
+            GameController.ResetController();
+        }
+
         [TestMethod]
         public void StartGame_Given3Players_CallsSetPlayersAndStartRound()
         {
             // Arrange
-            var controller = new GameController();
+            var controller = GameController.Instance;
             var roundMock = new Mock<IRound>();
             var boardMock = new Mock<IBoard>();
             boardMock.Setup(m => m.Houses).Returns(new[] { new House(Color.Red) });
@@ -33,7 +39,7 @@ namespace GameTests
         public void StartGame_Given3Players_CreatesTokensForEachPlayer()
         {
             // Arrange
-            var controller = new GameController();
+            var controller = GameController.Instance;
             var roundMock = new Mock<IRound>();
 
             roundMock.Setup(r => r.SetPlayers(3));
