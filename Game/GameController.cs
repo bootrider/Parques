@@ -13,9 +13,8 @@ namespace Game
     {
         private static GameController myInstance = null;
 
-        private IRound? myRound;
         private Dictionary<Guid, Player> myPlayers = new();
-
+        private IRound? myRound;
         private GameController()
         {
             this.IsRunning = false;

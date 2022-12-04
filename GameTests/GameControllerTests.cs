@@ -16,6 +16,64 @@ namespace GameTests
         }
 
         [TestMethod]
+        public void JoinPlayer_GivenExistingName_PlayerIsReturnedAndAddedToGame()
+        {
+            // Arrange
+            var controller = GameController.Instance;
+            controller.JoinPlayer("Mario");
+
+            // Act
+            var player = controller.JoinPlayer("Mario");
+
+            // Assert
+            Assert.IsNotNull(player);
+            Assert.AreEqual(2, controller.Players.Count);
+            Assert.AreEqual("Mario", controller.Players[player.Id].Name);
+        }
+
+        [TestMethod]
+        public void JoinPlayer_GivenName_PlayerIsReturnedAndAddedToGame()
+        {
+            // Arrange
+            var controller = GameController.Instance;
+
+            // Act
+            var player = controller.JoinPlayer("Mario");
+
+            // Assert
+            Assert.IsNotNull(player);
+            Assert.AreEqual(1, controller.Players.Count);
+            Assert.AreEqual("Mario", controller.Players[player.Id].Name);
+        }
+
+        [TestMethod]
+        public void JoinPlayer_GivenNameAndGameIsRunning_ReturnsNull()
+        {
+            // Arrange
+            var controller = GameController.Instance;
+            var roundMock = new Mock<IRound>();
+
+            roundMock.Setup(r => r.SetPlayers(3));
+
+            roundMock.Setup(r => r.StartRound()).Returns(new Dictionary<Color, IList<Token>>()
+            {
+                { Color.Red,new Token[] { new(), new(), new(),new() } },
+                { Color.Blue,new Token[] { new(), new(), new(),new() } },
+                { Color.Yellow,new Token[] { new(), new(), new(),new() } },
+            });
+            controller.Round = roundMock.Object;
+            controller.JoinPlayer("Luigi");
+            controller.JoinPlayer("Peach");
+            controller.StartGame();
+
+            // Act
+            var player = controller.JoinPlayer("Mario");
+
+            // Assert
+            Assert.IsNull(player);
+        }
+
+        [TestMethod]
         public void StartGame_Given3Players_CallsSetPlayersAndStartRound()
         {
             // Arrange
@@ -89,65 +147,5 @@ namespace GameTests
             //Assert
             Assert.IsNull(res);
         }
-
-        [TestMethod]
-        public void JoinPlayer_GivenName_PlayerIsReturnedAndAddedToGame()
-        {
-            // Arrange
-            var controller = GameController.Instance;
-
-            // Act
-            var player = controller.JoinPlayer("Mario");
-
-            // Assert
-            Assert.IsNotNull(player);
-            Assert.AreEqual(1, controller.Players.Count);
-            Assert.AreEqual("Mario", controller.Players[player.Id].Name);
-        }
-
-        [TestMethod]
-        public void JoinPlayer_GivenExistingName_PlayerIsReturnedAndAddedToGame()
-        {
-            // Arrange
-            var controller = GameController.Instance;            
-            controller.JoinPlayer("Mario");
-            
-            // Act
-            var player = controller.JoinPlayer("Mario");
-
-            // Assert
-            Assert.IsNotNull(player);
-            Assert.AreEqual(2, controller.Players.Count);
-            Assert.AreEqual("Mario", controller.Players[player.Id].Name);
-        }
-
-        [TestMethod]
-        public void JoinPlayer_GivenNameAndGameIsRunning_ReturnsNull()
-        {
-            // Arrange
-            var controller = GameController.Instance;
-            var roundMock = new Mock<IRound>();
-
-            roundMock.Setup(r => r.SetPlayers(3));
-
-            roundMock.Setup(r => r.StartRound()).Returns(new Dictionary<Color, IList<Token>>()
-            {
-                { Color.Red,new Token[] { new(), new(), new(),new() } },
-                { Color.Blue,new Token[] { new(), new(), new(),new() } },
-                { Color.Yellow,new Token[] { new(), new(), new(),new() } },
-            });
-            controller.Round = roundMock.Object;
-            controller.JoinPlayer("Luigi");
-            controller.JoinPlayer("Peach");
-            controller.StartGame();
-
-            // Act
-            var player = controller.JoinPlayer("Mario");
-
-            // Assert
-            Assert.IsNull(player);            
-        }
-
-
     }
 }
