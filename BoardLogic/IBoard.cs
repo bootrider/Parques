@@ -6,7 +6,7 @@ namespace BoardLogic
     {
         House[] Houses { get; set; }
 
-        void MoveToken(Token token, int steps);
+        void MoveToken(IToken token, int steps);
 
         Token[] SetReady(Color color);
     }

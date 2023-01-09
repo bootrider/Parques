@@ -2,16 +2,16 @@
 namespace DiceLogic.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class DiceThrowerTests
     {
         [TestMethod]
         public void generateNumberFace_given1to6_returnTrueInterval() //se puede probar un intervalo?
         {
             //arrange
-            var dice = new DiceLogicClass(); //solo me permite probar la clase public no internal
+            var dice = new DiceThrower(); //solo me permite probar la clase public no internal
 
             //act
-            int number = dice.generateNumberFace();
+            int number = dice.GenerateNumberFace();
 
             //assert
             Assert.IsTrue(number > 0);
@@ -22,10 +22,10 @@ namespace DiceLogic.Tests
         public void generateNumberFace_lessTo1_returnFalse()
         {
             //arrange
-            var dice = new DiceLogicClass(); //solo me permite probar la clase public no internal
+            var dice = new DiceThrower(); //solo me permite probar la clase public no internal
 
             //act
-            int number = dice.generateNumberFace();
+            int number = dice.GenerateNumberFace();
 
             //assert
             Assert.IsFalse(number < 1);
@@ -35,36 +35,24 @@ namespace DiceLogic.Tests
         public void generateNumberFace_moreTo6_returnFalse()
         {
             //arrange
-            var dice = new DiceLogicClass(); //solo me permite probar la clase public no internal
+            var dice = new DiceThrower(); //solo me permite probar la clase public no internal
 
             //act
-            int number = dice.generateNumberFace();
+            int number = dice.GenerateNumberFace();
 
             //assert
             Assert.IsFalse(number > 6);
         }
-
-        [TestMethod]
-        public void putTogheter_isDice2and4_return6()
-        {
-            //arrange
-            var dice = new DiceLogicClass();
-
-            //act
-            int total = dice.putTogheter(2,4);
-
-            //assert
-            Assert.AreEqual(6,total);
-        }
+               
 
         [TestMethod]
         public void diceRoll_arrayisNotNull_returnArray()
         {
             //arrange
-            var dice = new DiceLogicClass();
+            var dice = new DiceThrower();
 
             //act
-            var total = dice.diceRoll();
+            var total = dice.Roll();
 
             //assert
             Assert.IsNotNull(total);

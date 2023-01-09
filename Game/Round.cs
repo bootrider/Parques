@@ -20,6 +20,17 @@ namespace Game
             throw new ArgumentNullException(nameof(this.Board));
         }
 
+        public bool MoveToken(IToken token, int step)
+        {
+            if (this.Board is not null)
+            {
+                this.Board.MoveToken(token, step);
+                return true;
+            }
+            
+            return false;
+        }
+
         public void SetPlayers(int players)
         {
            this.Board = new Board(players);
@@ -39,7 +50,7 @@ namespace Game
             }
 
             return dict;
-        }
+        }         
 
     }
 }

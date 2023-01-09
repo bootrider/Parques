@@ -11,7 +11,7 @@ namespace Game
     /// </summary>
     public class GameController
     {
-        private static GameController myInstance = null;
+        private static GameController? myInstance = null;
 
         private Dictionary<Guid, Player> myPlayers = new();
         private IRound? myRound;
@@ -74,6 +74,9 @@ namespace Game
                 this.Round.SetPlayers(this.myPlayers.Count);
 
                 this.Tokens = this.Round.StartRound();
+
+                this.myPlayers.Values.ToList().ForEach(p => p.Color = this.Tokens.Keys.ToList()[this.myPlayers.Values.ToList().IndexOf(p)]);
+                
                 this.IsRunning = true;
 
                 return this.Round; 

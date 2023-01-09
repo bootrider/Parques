@@ -34,7 +34,7 @@ namespace BoardLogic
             }
         }
 
-        public void MoveToken(Token token, int steps)
+        public void MoveToken(IToken token, int steps)
         {
             throw new NotImplementedException();
         }

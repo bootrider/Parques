@@ -7,10 +7,16 @@ using System.Threading.Tasks;
 
 namespace BoardLogic
 {
-    
-    public class Token
+
+    public class Token : IToken
     {
         public Color Color { get; set; }
+
+        public Position GetPosition(Box box)
+        {
+            // TODO: this method is intended to be used implementing the Visitor pattern.
+            throw new NotImplementedException();
+        }
 
     }
 }
