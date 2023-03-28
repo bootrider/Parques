@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Drawing;
 using BoardLogic;
+using DiceLogic;
 
 namespace Game
 {
@@ -83,6 +84,22 @@ namespace Game
             }
             
             return null;
+        }
+
+        public int? ThrowDie(Guid? playerId)
+        {
+            if (playerId is null)
+            {
+                return null;
+            }
+
+            if (!this.myPlayers.ContainsKey(playerId.Value))
+            {
+                throw new ArgumentException("The Player does not exist");
+            }
+
+            var thrower = new DiceThrower();
+            return thrower.RollOneDie().Die1;
         }
     }
 }

@@ -52,7 +52,7 @@ namespace DiceLogic.Tests
             var dice = new DiceThrower();
 
             //act
-            var total = dice.Roll();
+            var total = dice.RollTwoDice();
 
             //assert
             Assert.IsNotNull(total);

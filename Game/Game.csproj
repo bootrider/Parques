@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BoardLogic\BoardLogic.csproj" />
+    <ProjectReference Include="..\DiceLogic\DiceLogic.csproj" />
   </ItemGroup>
 
 </Project>

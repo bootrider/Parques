@@ -10,11 +10,16 @@
             return numberFace;
         }
 
-        public DiceResult Roll()
-        { 
+        public DiceResult RollTwoDice()
+        {
             DiceResult dataDice = new(this.GenerateNumberFace(), this.GenerateNumberFace());
             return dataDice;
         }
 
+        public DiceResult RollOneDie()
+        {
+            DiceResult dataDice = new(this.GenerateNumberFace(), null);
+            return dataDice;
+        }
     }
 }
