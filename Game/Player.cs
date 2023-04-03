@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using BoardLogic;
 
 namespace Game
 {
@@ -9,5 +10,7 @@ namespace Game
         public string Name { get; set; }
 
         public Color Color { get; set; }
+
+        public Token[] Tokens { get; set; }
     }
 }

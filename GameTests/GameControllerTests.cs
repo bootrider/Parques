@@ -195,5 +195,95 @@ namespace GameTests
             //Assert
             Assert.IsTrue(res >=1 && res <=6);
         }
+
+        [TestMethod]
+        public void MoveToken_GivingExistingPlayerIdAndTotalSteps_ShouldCurrentPlayerBeNext()
+        {
+            // Arrange
+            var controller = GameController.Instance;
+            var mario = controller.JoinPlayer("Mario");
+            var luigi = controller.JoinPlayer("Luigi");
+
+            var roundMock = new Mock<IRound>();
+
+            roundMock.Setup(r => r.SetPlayers(2));
+
+            roundMock.Setup(r => r.StartRound()).Returns(new Dictionary<Color, IList<Token>>()
+            {
+                { Color.Red,new Token[] { new(), new(), new(),new() } },
+                { Color.Green,new Token[] { new(), new(), new(),new() } }                
+            });
+            controller.Round = roundMock.Object;
+
+            // Act
+            controller.StartGame();
+            var diceResult = controller.ThrowDice(mario.Id);
+            controller.MoveToken(mario.Id, mario.Tokens.First(), diceResult.Total);
+
+            // Assert
+            var currentPlayer = controller.CurrentPlayer;
+            Assert.IsNotNull(currentPlayer);
+            Assert.AreEqual(luigi.Id, currentPlayer);
+        }
+
+        [TestMethod]
+        public void MoveToken_GivingExistingPlayerIdAndDice1Steps_ShouldCurrentPlayerBeSame()
+        {
+            // Arrange
+            var controller = GameController.Instance;
+            var mario = controller.JoinPlayer("Mario");
+            var luigi = controller.JoinPlayer("Luigi");
+
+            var roundMock = new Mock<IRound>();
+
+            roundMock.Setup(r => r.SetPlayers(2));
+
+            roundMock.Setup(r => r.StartRound()).Returns(new Dictionary<Color, IList<Token>>()
+            {
+                { Color.Red,new Token[] { new(), new(), new(),new() } },
+                { Color.Green,new Token[] { new(), new(), new(),new() } }
+            });
+            controller.Round = roundMock.Object;
+
+            // Act
+            controller.StartGame();
+            var diceResult = controller.ThrowDice(mario.Id);
+            controller.MoveToken(mario.Id, mario.Tokens.First(), diceResult.Die1.Value);
+
+            // Assert
+            var currentPlayer = controller.CurrentPlayer;
+            Assert.IsNotNull(currentPlayer);
+            Assert.AreEqual(mario.Id, currentPlayer);
+        }
+
+        [TestMethod]
+        public void MoveToken_GivingExistingPlayerIdAndDice2Steps_ShouldCurrentPlayerBeSame()
+        {
+            // Arrange
+            var controller = GameController.Instance;
+            var mario = controller.JoinPlayer("Mario");
+            var luigi = controller.JoinPlayer("Luigi");
+
+            var roundMock = new Mock<IRound>();
+
+            roundMock.Setup(r => r.SetPlayers(2));
+
+            roundMock.Setup(r => r.StartRound()).Returns(new Dictionary<Color, IList<Token>>()
+            {
+                { Color.Red,new Token[] { new(), new(), new(),new() } },
+                { Color.Green,new Token[] { new(), new(), new(),new() } }
+            });
+            controller.Round = roundMock.Object;
+
+            // Act
+            controller.StartGame();
+            var diceResult = controller.ThrowDice(mario.Id);
+            controller.MoveToken(mario.Id, mario.Tokens.First(), diceResult.Die2.Value);
+
+            // Assert
+            var currentPlayer = controller.CurrentPlayer;
+            Assert.IsNotNull(currentPlayer);
+            Assert.AreEqual(mario.Id, currentPlayer);
+        }
     }
 }

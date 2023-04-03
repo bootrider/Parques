@@ -15,7 +15,10 @@ namespace Game
         private static GameController? myInstance = null;
 
         private Dictionary<Guid, Player> myPlayers = new();
+
         private IRound? myRound;
+        private TurnController<Guid> myTurnController;
+
         private GameController()
         {
             this.IsRunning = false;
@@ -27,17 +30,17 @@ namespace Game
             {
                 if (GameController.myInstance is null)
                 {
-                    myInstance = new GameController();
+                    GameController.myInstance = new GameController();
                 }
 
                 return GameController.myInstance;
             }
         }
 
-        public Player? CurrentPlayer { get; set; }
+        public Guid? CurrentPlayer { get; set; }
         public bool IsRunning { get; private set; }
 
-        public ReadOnlyDictionary<Guid, Player> Players  => new ReadOnlyDictionary<Guid, Player>(this.myPlayers);
+        public ReadOnlyDictionary<Guid, Player> Players => new ReadOnlyDictionary<Guid, Player>(this.myPlayers);
 
         public IRound Round
         {
@@ -62,10 +65,15 @@ namespace Game
                     Name = name
                 };
                 this.myPlayers.Add(player.Id, player);
-                return player; 
+                return player;
             }
 
             return null;
+        }
+
+        public void MoveToken(Guid? playerId, Token token, int steps)
+        {
+            this.CurrentPlayer = this.myTurnController.TokenMoved(steps);
         }
 
         public IRound? StartGame()
@@ -77,13 +85,35 @@ namespace Game
                 this.Tokens = this.Round.StartRound();
 
                 this.myPlayers.Values.ToList().ForEach(p => p.Color = this.Tokens.Keys.ToList()[this.myPlayers.Values.ToList().IndexOf(p)]);
-                
-                this.IsRunning = true;
+                this.myPlayers.Values.ToList().ForEach(p => p.Tokens = this.Tokens[p.Color].ToArray());
 
-                return this.Round; 
+                this.IsRunning = true;
+                this.myTurnController = TurnController<Guid>.Instance;
+                this.myTurnController.LoadPlayers(this.myPlayers.Keys);
+                this.CurrentPlayer = this.myTurnController.CurrentPlayer();
+
+                return this.Round;
             }
-            
+
             return null;
+        }
+
+        public DiceResult ThrowDice(Guid? playerId)
+        {
+            if (playerId is null)
+            {
+                return null;
+            }
+
+            if (!this.myPlayers.ContainsKey(playerId.Value))
+            {
+                throw new ArgumentException("The Player does not exist");
+            }
+
+            var thrower = new DiceThrower();
+            var result = thrower.RollTwoDice();
+            this.CurrentPlayer = this.myTurnController.DiceThrown(result);
+            return result;
         }
 
         public int? ThrowDie(Guid? playerId)
