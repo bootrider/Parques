@@ -70,8 +70,8 @@ namespace BoardLogic.Tests
             var house = new House(Color.Violet);
 
             // Assert
-            Assert.AreEqual(typeof(BoxPathSky), house.Sky[index].GetType());
-            Assert.IsInstanceOfType(house.Sky[index], typeof(BoxPathSky));
+            Assert.AreEqual(typeof(BoxPathSky), house.SkyPath[index].GetType());
+            Assert.IsInstanceOfType(house.SkyPath[index], typeof(BoxPathSky));
         }
 
         [TestMethod]

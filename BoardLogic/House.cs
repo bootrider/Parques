@@ -7,9 +7,9 @@ namespace BoardLogic
     public class House
     {
         //public Jail Jail{ get; set; }
-        public Token[] Jail { get; set; } = new Token[4];
+        public Box[] Jail { get; set; } = new Box[4];
 
-        public Box[] Sky { get; set; } = new Box[8];
+        public Box[] SkyPath { get; set; } = new Box[8];
 
         public Box[] Path { get; set; } = new Box[16];
 
@@ -34,13 +34,13 @@ namespace BoardLogic
                 }
             }
 
-            //initialized The SkyPath //THIS COULD TO BE A RULE 
-            for (int i = 0; i < Sky.Length; i++)
-                this.Sky[i] = new BoxPathSky(i);
+            //initialized The SkyPath 
+            for (int i = 0; i < this.SkyPath.Length; i++)
+                this.SkyPath[i] = new BoxPathSky(i);
 
             //Initialized the Jail //I THINK SO
             for (int i = 0; i < Jail.Length; i++)
-                this.Jail[i] = new Token();
+                this.Jail[i] = new Box(i);
         }
     }
 }
