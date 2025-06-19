@@ -10,13 +10,16 @@ namespace BoardLogic
 
     public class Token : IToken
     {
+        public Guid Id { get; set; } = Guid.NewGuid();
+
         public Color Color { get; set; }
 
         public Position GetPosition(Box box)
         {
-            // TODO: this method is intended to be used implementing the Visitor pattern.
             throw new NotImplementedException();
         }
+
+        public Position CurrentPosition { get; set; }
 
     }
 }

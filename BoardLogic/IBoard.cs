@@ -8,6 +8,6 @@ namespace BoardLogic
 
         void MoveToken(IToken token, int steps);
 
-        Token[] SetReady(Color color);
+        Token[] SetReady(IHouse house);
     }
 }

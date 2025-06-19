@@ -4,10 +4,11 @@ using System.Xml;
 
 namespace BoardLogic
 {
-    public class House
+    using System.Runtime.CompilerServices;
+
+    public class House : IHouse
     {
-        //public Jail Jail{ get; set; }
-        public Box[] Jail { get; set; } = new Box[4];
+        public IBox Jail { get; set; } = new Box(0);
 
         public Box[] SkyPath { get; set; } = new Box[8];
 
@@ -37,10 +38,7 @@ namespace BoardLogic
             //initialized The SkyPath 
             for (int i = 0; i < this.SkyPath.Length; i++)
                 this.SkyPath[i] = new BoxPathSky(i);
-
-            //Initialized the Jail //I THINK SO
-            for (int i = 0; i < Jail.Length; i++)
-                this.Jail[i] = new Box(i);
+           
         }
     }
 }

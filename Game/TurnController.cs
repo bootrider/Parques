@@ -60,11 +60,12 @@ namespace Game
                 this.SetNextPlayer();
                 return this.CurrentPlayer();
             }
-            if (steps == this.myCurrentDiceResult.Die1.Value)
+            
+            if (steps == this.myCurrentDiceResult.Die1)
             {
                 this.myDice1Done = true;
             }
-            if (steps == this.myCurrentDiceResult.Die2.Value)
+            if (steps == this.myCurrentDiceResult.Die2)
             {
                 this.myDice2Done = true;
             }

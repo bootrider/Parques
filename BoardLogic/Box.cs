@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace BoardLogic
 {
-    public class Box
+    public class Box : IBox
     {
-        int indice = 0;
+        int index = 0;
         //Dictionary<string, int> tokensOverview = new Dictionary<string, int>();
         List<Token> myTokens = new List<Token>();
 
-        public Box(int indice)
+        public Box(int index)
         {
-            this.indice = indice;
+            this.index = index;
         }
 
         public Dictionary<string, int> GetTokensOverview()
@@ -23,47 +23,22 @@ namespace BoardLogic
             var myDict = new Dictionary<string, int>();
             foreach (var token in this.myTokens)
             {
-                if (myDict.ContainsKey(token.Color.Name))
+                if (!myDict.TryAdd(token.Color.Name, 1))
                 {
                     myDict[token.Color.Name] += 1;
                 }
-                else
-                {
-                    myDict.Add(token.Color.Name, 1);
-                }                
             }
             return myDict;
         }
 
         public void AddToken(Token token)
         {
-            this.myTokens.Add(token);
-            //if (tokensOverview.ContainsKey(token.Color.Name))
-            //{
-            //    tokensOverview[token.Color.Name]+=1;
-            //}
-            //else 
-            //{
-            //    tokensOverview.TryAdd(token.Color.Name, 1);
-            //}        
+            this.myTokens.Add(token);     
         }
 
         public void RemoveAToken(Token token)
         {
             this.myTokens.Remove(token);
-            //if (tokensOverview.TryGetValue(token.Color.ToString(), out int indice))
-            //{
-            //    if (indice >= 2 )
-            //    {
-            //        tokensOverview[token.Color.Name] -= 1;
-            //    }
-            //    else
-            //    {
-            //        //id indice = 1, it is remove the color of dictionary
-            //        tokensOverview.Remove(token.Color.Name);    
-            //    }
-            //}
-            //si llega here at else, es por que, es por que el parametro no exite!!. exception
         }
 
         public void clearBox()

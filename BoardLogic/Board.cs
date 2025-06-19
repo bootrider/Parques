@@ -4,12 +4,13 @@ namespace BoardLogic
 {
     public class Board : IBoard
     {
+        private List<IToken> myTokens = new();
         public House[] Houses { get; set; }
 
         public Board(int players)
         {
             this.Houses = new House[players];
-            for (int i = 0; i < players; i++)
+            for (var i = 0; i < players; i++)
             {
                 Color selectedColor;
                 switch (i)
@@ -32,6 +33,7 @@ namespace BoardLogic
 
                 this.Houses[i] = new House(selectedColor);
             }
+
         }
 
         public void MoveToken(IToken token, int steps)
@@ -39,9 +41,30 @@ namespace BoardLogic
             throw new NotImplementedException();
         }
 
-        public Token[] SetReady(Color color)
+        public void MoveToken(IToken token, Position newPosition)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        public Token[] SetReady(IHouse house)
+        {
+            // Create 4 tokens for the house
+            var tokens = new Token[4];
+
+            for (var i = 0; i < 4; i++)
+            {
+                // Create a new token with the same color as the house
+                tokens[i] = new Token
+                {
+                    Color = house.Color,
+                };
+
+                // Add the token to the house's jail box
+                house.Jail.AddToken(tokens[i]);
+            }
+
+            this.myTokens.AddRange(tokens);
+            return tokens;
         }
     }
 }

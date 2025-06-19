@@ -83,8 +83,8 @@ namespace BoardLogic.Tests
             var house = new House(Color.Violet);
 
             // Assert
-            Assert.AreEqual(typeof(Token[]), house.Jail.GetType());
-            Assert.IsInstanceOfType(house.Jail, typeof(Token[]));
+            Assert.AreEqual(typeof(Box[]), house.Jail.GetType());
+            Assert.IsInstanceOfType(house.Jail, typeof(Box[]));
         }
 
 
